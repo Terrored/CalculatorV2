@@ -27,9 +27,7 @@ namespace CalculatorV2
 
         private void addNumber(object sender, EventArgs e)
         {
-           
 
-            
             Button x = (Button)sender;
 
             if ((resultText.Text == "0" && x.Text!=",")|| operation_pressed)
