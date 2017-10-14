@@ -51,7 +51,7 @@ namespace CalculatorV2
 
         private void ceButton_Click(object sender, EventArgs e)
         {
-            resultText.Text = "";
+            resultText.Text = "0";
         }
 
         private void operation_Click(object sender, EventArgs e)
@@ -84,7 +84,12 @@ namespace CalculatorV2
                     break;
                 case "/" :
                     if (Double.Parse(resultText.Text) == 0)
-                        resultText.Text = "Nie dziel przez zero !";
+                    {
+                        resultText.Text = "0";
+                        MessageBox.Show("Nie dziel przez zero !");
+                        
+                        
+                    }
                     else
                         resultText.Text = (Math.Round(value / Double.Parse(resultText.Text), 3)).ToString();
                     break;    
@@ -96,8 +101,9 @@ namespace CalculatorV2
 
         private void cButton_Click(object sender, EventArgs e)
         {
-            resultText.Text = "";
+            resultText.Text = "0";
             value = 0;
+            equation.Text = "";
         }
     }
 }
