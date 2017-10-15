@@ -30,39 +30,49 @@ namespace CalculatorV2
 
             Button x = (Button)sender;
 
-            if ((resultText.Text == "0" && x.Text!=",")|| operation_pressed)
-                resultText.Clear();
+           
+            
+                if ((resultText.Text == "0" && x.Text != ",") || operation_pressed)
+                    resultText.Clear();
 
-            operation_pressed = false;
-
-            if (x.Text ==",")
-            {
-                if (!resultText.Text.Contains(","))
-                   
-                    resultText.Text += x.Text;
+                operation_pressed = false;
                 
+                if (x.Text == ",")
+                {
+                    if (!resultText.Text.Contains(","))
 
-            }
-            else
-                resultText.Text += x.Text;
+                        resultText.Text += x.Text;
 
+
+                }
+                else
+                    resultText.Text += x.Text;
+            
 
         }
 
-        private void ceButton_Click(object sender, EventArgs e)
-        {
-            resultText.Text = "0";
-        }
+        
 
         private void operation_Click(object sender, EventArgs e)
         {
             Button x = (Button)sender;
-            operation = x.Text;
-            value = Math.Round(Double.Parse(resultText.Text),3);
-            equation.Text = resultText.Text + x.Text;
-            resultText.Text = value.ToString();
-            
-            operation_pressed = true;
+
+            if (value != 0)
+            {
+                equal.PerformClick();
+                operation_pressed = true;
+                operation = x.Text;
+                equation.Text = resultText.Text + x.Text;
+            }
+            else
+            {
+                operation = x.Text;
+                value = Math.Round(Double.Parse(resultText.Text), 3);
+                equation.Text = resultText.Text + x.Text;
+                resultText.Text = value.ToString();
+
+                operation_pressed = true;
+            }
 
 
         }
@@ -92,11 +102,16 @@ namespace CalculatorV2
                     }
                     else
                         resultText.Text = (Math.Round(value / Double.Parse(resultText.Text), 3)).ToString();
-                    break;    
+                    break;
+                default:
+                    break;
 
             }
             equation.Text = "";
             operation_pressed = false;
+
+            operation = "";
+            value = Double.Parse(resultText.Text);
         }
 
         private void cButton_Click(object sender, EventArgs e)
@@ -105,5 +120,11 @@ namespace CalculatorV2
             value = 0;
             equation.Text = "";
         }
+        private void ceButton_Click(object sender, EventArgs e)
+        {
+            resultText.Text = "0";
+        }
+
+
     }
 }
