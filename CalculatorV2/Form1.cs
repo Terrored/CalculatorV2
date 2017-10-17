@@ -125,6 +125,57 @@ namespace CalculatorV2
             resultText.Text = "0";
         }
 
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch(e.KeyChar.ToString())
+            {
+                case "1":
+                    one.PerformClick();
+                    break;
+                case "2":
+                    two.PerformClick();
+                    break;
+                case "3":
+                    three.PerformClick();
+                    break;
+                case "4":
+                    four.PerformClick();
+                    break;
+                case "5":
+                    five.PerformClick();
+                    break;
+                case "6":
+                    six.PerformClick();
+                    break;
+                case "7":
+                    seven.PerformClick();
+                    break;
+                case "+":
+                    sum.PerformClick();
+                    break;
+                case "-":
+                    minus.PerformClick();
+                    break;
+                case "/":
+                    div.PerformClick();
+                    break;
+                case "*":
+                    multi.PerformClick();
+                    break;
+                case ",":
+                    point.PerformClick();
+                    break;
+                case "=":
+                    equal.PerformClick();
+                    break;
+                
+                default:
+                    break;
+                    
 
+
+
+            }
+        }
     }
 }
