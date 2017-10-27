@@ -40,10 +40,8 @@ namespace CalculatorV2
                 if (x.Text == ",")
                 {
                     if (!resultText.Text.Contains(","))
-
-                        resultText.Text += x.Text;
-
-
+                         resultText.Text += x.Text;
+                    
                 }
                 else
                     resultText.Text += x.Text;
@@ -97,8 +95,7 @@ namespace CalculatorV2
                     {
                         resultText.Text = "0";
                         MessageBox.Show("Nie dziel przez zero !");
-                        
-                        
+                                                
                     }
                     else
                         resultText.Text = (Math.Round(value / Double.Parse(resultText.Text), 3)).ToString();
